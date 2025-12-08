@@ -840,7 +840,7 @@ class Autoencoder(AutoencoderKL):
 
         # ------PET-specific residual information-------
         pet_residual=latent_pet-latent_ct
-        shared_latent = latent_ct.clone() + pet_residual # adjust PET retain metabolic information
+        latent_pet = latent_ct.clone() + (alpha)pet_residual # adjust PET retain metabolic information
         print(pet_residual.shape)
         print(z_ct.shape, z_pet.shape)
         # Ensure correct latent channel shape
