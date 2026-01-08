@@ -9,7 +9,7 @@ from models.utils import KL_loss
 class VAE_Losses:
     """Class to encapsulate different loss functions for training AutoencoderCTPET."""
 
-    def __init__(self, device, perceptual_weight=0.3, kl_weight=1e-7, adv_weight=0.1, contrastive_weight=0.5):
+    def __init__(self, device, perceptual_weight=0.3, kl_weight=1e-7, adv_weight=0.1, contrastive_weight=0.1):
         """
         Initialize loss functions.
 
@@ -32,7 +32,7 @@ class VAE_Losses:
         self.adv_weight = adv_weight
 
 
-    def contrastive_loss(self, z_ct, z_pet, temperature=0.5):
+    def contrastive_loss(self, z_ct, z_pet, temperature=0.1):
         """
         Encourages CT and PET embeddings to be aligned but distinct.
         Aims to retain PET-specific metabolic details while keeping structure aligned.
