@@ -23,7 +23,7 @@ class TrainOptions:
         self.perceptual_weight = 0.3  
         self.kl_weight = 1e-7  
         self.adv_weight = 0.1  
-        self.contrastive_weight=0.5
+        self.contrastive_weight=0.1
 
         # Gradient Accumulation
         self.gradient_accumulation_steps = 2 if self.batchSize < 2 else 1  # Fix tuple issue
